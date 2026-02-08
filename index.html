@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PUNKWEB</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="boot">
+  <main class="screen">
+    <pre class="ascii" aria-hidden="true">
+██████╗ ██╗   ██╗███╗   ██╗██╗  ██╗██╗    ██╗███████╗██████╗ 
+██╔══██╗██║   ██║████╗  ██║██║ ██╔╝██║    ██║██╔════╝██╔══██╗
+██████╔╝██║   ██║██╔██╗ ██║█████╔╝ ██║ █╗ ██║█████╗  ██████╔╝
+██╔═══╝ ██║   ██║██║╚██╗██║██╔═██╗ ██║███╗██║██╔══╝  ██╔══██╗
+██║     ╚██████╔╝██║ ╚████║██║  ██╗╚███╔███╔╝███████╗██████╔╝
+╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚══════╝╚═════╝
+    </pre>
+
+    <section class="qr-section">
+      <img src="qr.png" alt="QR code" class="qr" />
+      <p class="caption">scan → telegram</p>
+    </section>
+  </main>
+
+  <script>
+    // boot animation: pixelated -> sharp
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.body.classList.remove("boot");
+      }, 250);
+    });
+  </script>
+</body>
+</html>

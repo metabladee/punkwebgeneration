@@ -1,0 +1,122 @@
+/* ============================= */
+/*        GLOBAL RESET           */
+/* ============================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+/* ============================= */
+/*      MAIN TERMINAL SETUP      */
+/* ============================= */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #000;
+  color: #00ff66;
+  font-family: "Consolas", "Courier New", monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+/* ============================= */
+/*   REGULATORS (EDIT HERE)      */
+/* ============================= */
+:root {
+  /* расстояние между ASCII и QR */
+  --ascii-qr-gap: 1.5rem;
+}
+
+/* ============================= */
+/*        TERMINAL SCREEN        */
+/* ============================= */
+.screen {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ascii-qr-gap);
+  text-align: center;
+}
+
+/* ============================= */
+/*      BOOT / PIXEL EFFECT      */
+/* ============================= */
+body.boot .screen {
+  filter: blur(6px) contrast(300%) brightness(1.2);
+}
+
+body.boot * {
+  image-rendering: pixelated;
+}
+
+/* ============================= */
+/*           ASCII ART           */
+/* ============================= */
+.ascii {
+  margin: 0;
+
+  /* 🔑 КЛЮЧЕВОЙ МОМЕНТ */
+  font-size: clamp(0.45rem, 1.2vw, 1.1rem);
+  line-height: 1.1;
+  letter-spacing: 0.06em;
+
+  white-space: pre;
+  overflow-x: auto;
+  max-width: 100%;
+
+  text-shadow:
+    0 0 6px rgba(0,255,102,0.45),
+    0 0 12px rgba(0,255,102,0.25);
+}
+
+/* убираем сглаживание на мобилках */
+@media (max-width: 600px) {
+  .ascii {
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: none;
+    letter-spacing: 0.04em;
+  }
+}
+
+/* ============================= */
+/*           QR BLOCK            */
+/* ============================= */
+.qr-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.qr {
+  width: min(80vw, 360px);
+  height: auto;
+  image-rendering: pixelated;
+}
+
+/* ============================= */
+/*            CAPTION            */
+/* ============================= */
+.caption {
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  opacity: 0.9;
+}
+
+/* ============================= */
+/*      MOBILE SPACING TWEAK     */
+/* ============================= */
+@media (max-width: 600px) {
+  :root {
+    --ascii-qr-gap: 1.2rem;
+  }
+}
