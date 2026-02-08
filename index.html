@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PUNKWEB</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="boot">
+  <main class="screen">
+
+    <!-- ASCII ART AS IMAGE -->
+    <img
+      src="ascii.png"
+      alt="PUNKWEB"
+      class="ascii-img"
+      aria-hidden="true"
+    />
+
+    <!-- QR (CLICKABLE) -->
+    <section class="qr-section">
+      <a
+        href="https://t.me/punkkweb"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="qr-link"
+        aria-label="Open Telegram channel"
+      >
+        <img src="qr.png" alt="Telegram QR code" class="qr" />
+      </a>
+      <p class="caption">scan / tap → telegram</p>
+    </section>
+
+  </main>
+
+  <script>
+    // boot animation: pixelated -> sharp
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.body.classList.remove("boot");
+      }, 250);
+    });
+  </script>
+</body>
+</html>
