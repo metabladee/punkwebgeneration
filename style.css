@@ -1,0 +1,99 @@
+/* ================= RESET ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ================= BODY ================= */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #000;
+  color: #00ff66;
+  font-family: Consolas, "Courier New", monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+/* ================= REGULATORS ================= */
+:root {
+  --ascii-qr-gap: 1.5rem;
+}
+
+/* ================= SCREEN ================= */
+.screen {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ascii-qr-gap);
+  text-align: center;
+
+  /* boot animation WITHOUT blur */
+  transition: opacity 0.4s steps(6);
+}
+
+/* ================= BOOT ================= */
+body.boot .screen {
+  opacity: 0;
+}
+
+/* ================= ASCII ================= */
+.ascii {
+  margin: 0;
+
+  /* 🚨 КРИТИЧЕСКИ ВАЖНО */
+  font-size: 12px;        /* целое значение */
+  line-height: 14px;      /* целое значение */
+  letter-spacing: 1px;
+
+  white-space: pre;
+  overflow-x: auto;
+  max-width: 100%;
+
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+
+  text-shadow:
+    0 0 6px rgba(0,255,102,0.4);
+}
+
+/* DESKTOP — можно крупнее */
+@media (min-width: 768px) {
+  .ascii {
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 2px;
+  }
+}
+
+/* ================= QR ================= */
+.qr-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.qr {
+  width: min(80vw, 360px);
+  height: auto;
+  image-rendering: pixelated;
+}
+
+/* ================= CAPTION ================= */
+.caption {
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  opacity: 0.9;
+}
